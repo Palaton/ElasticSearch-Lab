@@ -1,9 +1,10 @@
+com\paranora\SpringDataElasticSearch\repositories\BookRepository.class
 com\paranora\App.class
 com\paranora\SpringDataElasticSearch\Author.class
 com\paranora\Jest\ElasticSearchFactory.class
 com\paranora\SpringDataElasticSearch\Book.class
-com\paranora\Author.class
-com\paranora\SpringDataElasticSearch\SampleElasticSearchBookRepository.class
+com\paranora\SpringDataElasticSearch\SpringDataElasticSearchApp$1$1.class
+com\paranora\SpringDataElasticSearch\SpringDataElasticSearchApp$1.class
 com\paranora\App$1.class
 com\paranora\httpUtility.class
 com\paranora\SpringDataElasticSearch\SpringDataElasticSearchApp.class

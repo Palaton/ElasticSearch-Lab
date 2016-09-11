@@ -2,32 +2,14 @@ package com.paranora.SpringDataElasticSearch;
 
 
 import com.paranora.ElasticSearch.ElasticSearchApp;
-import com.paranora.User;
-import com.sun.org.apache.xerces.internal.impl.PropertyManager;
-import org.elasticsearch.action.support.AutoCreateIndex;
-import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.QueryStringQueryBuilder;
-import org.elasticsearch.node.Node;
-import org.elasticsearch.node.NodeBuilder;
-import org.springframework.data.domain.Page;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.*;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
-
-import java.io.FileInputStream;
 import java.io.InputStream;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.util.*;
 
-import static com.paranora.ElasticSearch.ElasticSearchApp.generateClient;
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
+
 
 /**
  * Created by yangqun on 2016/09/10.
