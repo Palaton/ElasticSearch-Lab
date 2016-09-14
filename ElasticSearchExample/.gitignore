@@ -4,7 +4,7 @@ atlassian-ide-plugin.xml
 .svn
 
 ## ignore any target dir
-target
+/target
 
 ##ignore only top level data dir - local node data files for unit tests
 /data

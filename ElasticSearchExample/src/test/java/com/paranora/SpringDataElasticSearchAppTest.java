@@ -61,35 +61,35 @@ public class SpringDataElasticSearchAppTest {
 
 
         System.out.println("hello i wanna test.");
-    }
+                }
 
-    @Test
-    public void getIndex(){
+@Test
+public void getIndex(){
         Book searchBook=repository.findOne("103");
-    }
+        }
 
-    @Test
-    public void deleteIndex(){
+@Test
+public void deleteIndex(){
 //        elasticsearchTemplate.deleteIndex(Book.class);
 
 //        elasticsearchTemplate.deleteIndex("book");
 
         try{
-            TransportClient client = ElasticSearchApp.generateClient("10.4.254.30", 9300, "es.cluster.a");
-            DeleteIndexRequest deleteIndexRequest=new DeleteIndexRequest("book");
-            DeleteRequest deleteRequest=new DeleteRequest("book");
+        TransportClient client = ElasticSearchApp.generateClient("10.4.254.30", 9300, "es.cluster.a");
+        DeleteIndexRequest deleteIndexRequest=new DeleteIndexRequest("book");
+        DeleteRequest deleteRequest=new DeleteRequest("book");
         }catch (Exception ex){
-            ex.printStackTrace();
+        ex.printStackTrace();
         }
-    }
+        }
 
-    @Test
-    public void refreshIndex(){
+@Test
+public void refreshIndex(){
         elasticsearchTemplate.refresh(Book.class);
-    }
+        }
 
-    @Test
-    public void createIndex(){
+@Test
+public void createIndex(){
         elasticsearchTemplate.createIndex(Book.class);
-    }
-}
+        }
+        }
