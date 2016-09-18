@@ -2,6 +2,8 @@ package com.paranora.SpringDataElasticSearch;
 
 
 import com.paranora.ElasticSearch.ElasticSearchApp;
+import com.paranora.SpringDataElasticSearch.Entity.Author;
+import com.paranora.SpringDataElasticSearch.Entity.Book;
 import org.elasticsearch.client.transport.TransportClient;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.*;

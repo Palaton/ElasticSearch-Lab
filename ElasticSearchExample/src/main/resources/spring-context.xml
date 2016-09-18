@@ -12,6 +12,6 @@
     </bean>
 
 
-    <elasticsearch:repositories base-package="com.paranora.SpringDataElasticSearch.repositories" />
+    <elasticsearch:repositories base-package="com.paranora.SpringDataElasticSearch.Repositories" />
 
 </beans>

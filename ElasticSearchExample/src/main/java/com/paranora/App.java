@@ -1,8 +1,8 @@
 package com.paranora;
 
 
-import com.paranora.ElasticSearch.ElasticSearchApp;
 import com.paranora.SpringDataElasticSearch.SpringDataElasticSearchApp;
+import com.paranora.Utilis.httpUtility;
 
 
 import java.sql.*;

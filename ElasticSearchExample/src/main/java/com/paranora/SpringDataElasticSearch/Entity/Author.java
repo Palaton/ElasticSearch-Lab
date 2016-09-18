@@ -1,4 +1,4 @@
-package com.paranora.SpringDataElasticSearch;
+package com.paranora.SpringDataElasticSearch.Entity;
 
 /**
  * Created by yangqun on 2016/09/10.

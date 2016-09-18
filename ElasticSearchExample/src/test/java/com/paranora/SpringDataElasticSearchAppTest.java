@@ -1,9 +1,9 @@
 package com.paranora;
 
 import com.paranora.ElasticSearch.ElasticSearchApp;
-import com.paranora.SpringDataElasticSearch.Author;
-import com.paranora.SpringDataElasticSearch.Book;
-import com.paranora.SpringDataElasticSearch.repositories.BookRepository;
+import com.paranora.SpringDataElasticSearch.Entity.Author;
+import com.paranora.SpringDataElasticSearch.Entity.Book;
+import com.paranora.SpringDataElasticSearch.Repositories.BookRepository;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.client.transport.TransportClient;

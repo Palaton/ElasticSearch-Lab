@@ -1,6 +1,6 @@
-package com.paranora.SpringDataElasticSearch.repositories;
+package com.paranora.SpringDataElasticSearch.Repositories;
 
-import com.paranora.SpringDataElasticSearch.Book;
+import com.paranora.SpringDataElasticSearch.Entity.Book;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 /**
