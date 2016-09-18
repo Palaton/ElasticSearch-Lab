@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
-import static javax.swing.UIManager.put;
-
 /**
  * Created by yangqun on 2016/09/11.
  */
@@ -34,18 +32,21 @@ public class SpringDataElasticSearchAppTest {
     private BookRepository repository;
 
     @Test
-    public void saveIndex(){
+    public void saveIndex() {
 
         Book book = new Book();
         book.setId("103");
         book.setName("创世纪-继篇-V2");
-        book.setBuckets(new HashMap<Integer,Collection<String>>(){
+        book.setBuckets(new HashMap<Integer, Collection<String>>() {
             {
                 put(1, new ArrayList<String>() {
                     {
-                        add("a");add("b");
-                        add("a1");add("b1");
-                        add("a2");add("b2");
+                        add("a");
+                        add("b");
+                        add("a1");
+                        add("b1");
+                        add("a2");
+                        add("b2");
                     }
                 });
             }
@@ -59,37 +60,36 @@ public class SpringDataElasticSearchAppTest {
         repository.save(book);
 
 
-
         System.out.println("hello i wanna test.");
-                }
+    }
 
-@Test
-public void getIndex(){
-        Book searchBook=repository.findOne("103");
-        }
+    @Test
+    public void getIndex() {
+        Book searchBook = repository.findOne("103");
+    }
 
-@Test
-public void deleteIndex(){
+    @Test
+    public void deleteIndex() {
 //        elasticsearchTemplate.deleteIndex(Book.class);
 
 //        elasticsearchTemplate.deleteIndex("book");
 
-        try{
-        TransportClient client = ElasticSearchApp.generateClient("10.4.254.30", 9300, "es.cluster.a");
-        DeleteIndexRequest deleteIndexRequest=new DeleteIndexRequest("book");
-        DeleteRequest deleteRequest=new DeleteRequest("book");
-        }catch (Exception ex){
-        ex.printStackTrace();
+        try {
+            TransportClient client = ElasticSearchApp.generateClient("10.4.254.30", 9300, "es.cluster.a");
+            DeleteIndexRequest deleteIndexRequest = new DeleteIndexRequest("book");
+            DeleteRequest deleteRequest = new DeleteRequest("book");
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        }
+    }
 
-@Test
-public void refreshIndex(){
+    @Test
+    public void refreshIndex() {
         elasticsearchTemplate.refresh(Book.class);
-        }
+    }
 
-@Test
-public void createIndex(){
+    @Test
+    public void createIndex() {
         elasticsearchTemplate.createIndex(Book.class);
-        }
-        }
+    }
+}
