@@ -18,18 +18,18 @@ public class App {
     public static void main(String[] args) throws Exception {
 
 
-////        bulkImportSqlDataToElasticSearch("10.4.254.30\\webchat",
-//                "WeChatOrg",
-//                "itdept",
-//                "it.good",
-//                "select * from users",
-//                "[AttentionTime]",
-//                "desc",
-//                1,
-//                300,
-//                "http://10.4.254.30:9200",
-//                "wechatorg",
-//                "user");
+        bulkImportSqlDataToElasticSearch("10.4.254.30\\webchat",
+                "WeChatOrg",
+                "itdept",
+                "it.good",
+                "select * from users",
+                "[AttentionTime]",
+                "desc",
+                1,
+                300,
+                "http://10.4.254.30:9200",
+                "wechatuser",
+                "user");
 
 //        bulkImportSqlDataToElasticSearch("10.4.19.22",
 //                "scsales_dev",
@@ -124,7 +124,20 @@ public class App {
 
 //        JestApp.test();
 
-        SpringDataElasticSearchApp.test();
+/*        SpringDataElasticSearchApp.test();*/
+
+//        bulkImportSqlDataToElasticSearch("10.4.254.30\\webchat",
+//                "WeChatOrg",
+//                "itdept",
+//                "it.good",
+//                "select * from Departments",
+//                "[UpdateTime]",
+//                "desc",
+//                1,
+//                300,
+//                "http://10.4.254.30:9200",
+//                "wechatdepartment",
+//                "department");
 
         System.out.println("Hello ElasticSearch!");
     }
@@ -190,7 +203,8 @@ public class App {
             httpUtility.put(String.format("%s/%s", esServerUrl, esIndexName), esTypeMappingRequestData.toString(),requestProperties);
 
             String sqlFormat = String.format("SELECT TOP %d * FROM ( select row_number() OVER (ORDER BY %s %s) rowIndex ,* from (%s) T1) T2 WHERE T2.rowIndex>?", pageSize, orderByFieldName, sort, sql);
-            String esIndexCreateStruct = String.format("{index:{\"_index\":\"%s\",\"_type\":\"%s\",\"_id\":%%s}}", esIndexName, esTypeName);
+//            String esIndexCreateStruct = String.format("{index:{\"_index\":\"%s\",\"_type\":\"%s\",\"_id\":%%s}}", "", "");
+            String esIndexCreateStruct = String.format("{index:{\"_id\":%%s}}", "", "");
 
             while (pageIndex < pageCount) {
                 long beginTime = System.currentTimeMillis();
@@ -210,7 +224,7 @@ public class App {
 
                 beginTime = System.currentTimeMillis();
                 errorMsg=esBulkReqeustString.toString();
-                httpUtility.post(String.format("%s/_bulk", esServerUrl), esBulkReqeustString.toString(),null);
+                httpUtility.post(String.format("%s/%s/%s/_bulk", esServerUrl,esIndexName,esTypeName), esBulkReqeustString.toString(),null);
                 endTime = System.currentTimeMillis();
                 System.out.println(String.format("push data costTime : %d", pageIndex, endTime - beginTime));
 

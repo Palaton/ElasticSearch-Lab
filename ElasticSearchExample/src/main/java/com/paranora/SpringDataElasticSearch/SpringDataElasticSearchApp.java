@@ -25,8 +25,6 @@ public class SpringDataElasticSearchApp {
         fis.close();
         String clusterName = properties.getProperty("cluster.name");
 
-        searchTest();
-
 //        ClassLoader extensionClassloader=ClassLoader.getSystemClassLoader();
 //        System.out.println("the parent of extension classloader : "+extensionClassloader);//
 //        System.out.println("abc:"+SpringDataElasticSearchApp.class.getClassLoader().getResource(""));
@@ -75,15 +73,4 @@ public class SpringDataElasticSearchApp {
         Map userMapping = elasticsearchTemplate.getMapping("wechatorg", "user");
     }
 
-    public static void searchTest() throws Exception{
-        TransportClient client = ElasticSearchApp.generateClient("10.4.254.30", 9300, "es.cluster.a");
-        ElasticsearchTemplate elasticsearchTemplate = new ElasticsearchTemplate(client);
-
-        String expectedDate = "创世纪";
-        String expectedWord = "book";
-        CriteriaQuery query = new CriteriaQuery(
-                new Criteria("name").contains(expectedDate).and(new Criteria("author.name").contains("moon")));
-
-        List<Book> result = elasticsearchTemplate.queryForList(query, Book.class);
-    }
 }

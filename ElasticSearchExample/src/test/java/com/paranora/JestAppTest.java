@@ -2,6 +2,8 @@ package com.paranora;
 
 import com.paranora.Jest.JestApp;
 import io.searchbox.client.JestClient;
+import io.searchbox.client.JestResult;
+import io.searchbox.core.Get;
 import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 import org.junit.Test;
@@ -9,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -43,6 +46,7 @@ public class JestAppTest {
                 "    }\n" +
                 "}";
 
+
         Search search = new Search.Builder(query)
                 .addIndex("wechatorg")
                 .addType("user")
@@ -54,5 +58,18 @@ public class JestAppTest {
         List<SearchResult.Hit<User, Void>> hits = result.getHits(User.class);
 
         System.out.println("end.");
+    }
+
+    @Test
+    public void get() throws Exception{
+        JestClient jestClient = JestApp.getClient();
+        Get get = new Get.Builder("wechatorg", "/user/_mapping").build();
+        try {
+            JestResult rs = jestClient.execute(get);
+            System.out.println(rs.getJsonString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

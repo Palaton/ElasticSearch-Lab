@@ -11,12 +11,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.query.Criteria;
+import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by yangqun on 2016/09/11.
@@ -66,6 +69,19 @@ public class SpringDataElasticSearchAppTest {
     @Test
     public void getIndex() {
         Book searchBook = repository.findOne("103");
+    }
+
+    @Test
+    public void search() throws Exception{
+        TransportClient client = ElasticSearchApp.generateClient("10.4.254.30", 9300, "es.cluster.a");
+
+        ElasticsearchTemplate elasticsearchTemplate = new ElasticsearchTemplate(client);
+        String expectedDate = "创世纪";
+        String expectedWord = "book";
+        CriteriaQuery query = new CriteriaQuery(
+                new Criteria("name").contains(expectedDate).and(new Criteria("author.name").contains("moon")));
+
+        List<Book> result = elasticsearchTemplate.queryForList(query, Book.class);
     }
 
     @Test

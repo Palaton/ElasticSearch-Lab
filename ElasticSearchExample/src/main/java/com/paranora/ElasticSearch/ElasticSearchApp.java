@@ -16,17 +16,6 @@ import java.util.List;
 public class ElasticSearchApp {
 
 
-    public static void test() throws Exception {
-        TransportClient client = generateClient("10.4.254.30",9300,"es.cluster.a");
-
-        GetResponse response = client.prepareGet("wechatorg", "user", "1").get();
-
-        String user = new String(response.getSourceAsBytes());
-
-        client.close();
-
-        System.out.println("Hello ElasticSearch API.");
-    }
 
     public static TransportClient generateClient(String ip,int port,String clusterName) throws  Exception{
         Settings settings = Settings.settingsBuilder()
