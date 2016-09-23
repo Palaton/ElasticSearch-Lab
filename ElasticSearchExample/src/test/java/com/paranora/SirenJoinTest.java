@@ -87,6 +87,6 @@ public class SirenJoinTest
             System.out.println(result.getErrorMessage());
         }
 
-        System.out.println("ok");
+        System.out.println("ok!");
     }
 }
