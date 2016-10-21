@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:elasticsearch="http://www.springframework.org/schema/data/elasticsearch"
        xsi:schemaLocation="http://www.springframework.org/schema/data/elasticsearch http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch-1.0.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <elasticsearch:transport-client id="client" cluster-name="es.cluster.a" cluster-nodes="10.4.254.30:9300" />
+    <beans>
+        <context:component-scan base-package="com.paranora.**"></context:component-scan>
 
-    <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
-        <constructor-arg name="client" ref="client"/>
-    </bean>
+    </beans>
 
-
-    <elasticsearch:repositories base-package="com.paranora.SpringDataElasticSearch.Repositories" />
+    <beans>
+        <elasticsearch:repositories base-package="com.paranora.SpringDataElasticSearch.Repositories"/>
+        <elasticsearch:transport-client id="client" cluster-name="es.cluster.a" cluster-nodes="10.4.254.30:9300"/>
+        <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
+            <constructor-arg name="client" ref="client"/>
+        </bean>
+    </beans>
 
 </beans>

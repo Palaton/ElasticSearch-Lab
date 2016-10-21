@@ -8,6 +8,8 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.util.concurrent.AtomicArray;
 import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.elasticsearch.common.xcontent.XContentParser;
+import org.elasticsearch.common.xcontent.yaml.YamlXContent;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
@@ -95,6 +97,33 @@ public class ElasticSearchAppTest {
             }
             System.out.println("=====================================================");
         }
+
+        System.out.println("end");
+    }
+
+    @Test
+    public void parse() throws  Exception{
+        String query = "{\n" +
+                "    \"query\":{\n" +
+                "         \"filtered\":{\n" +
+                "            \"filter\":{\n" +
+                "                \"bool\":{\n" +
+                "                    \"must\":[\n" +
+                "                        {\"term\":{\"Levels\":1}}\n" +
+                "                    ],\n" +
+                "                    \"should\":[\n" +
+                "                        {\"term\":{\"ParentID\":\"bobin\"}},\n" +
+                "                        {\"term\":{\"ParentID\":\"zuojj\"}}\n" +
+                "                    ]\n" +
+                "                }\n" +
+                "            },\n" +
+                "            \"query\":{\n" +
+                "                match_all:{}\n" +
+                "            }\n" +
+                "         }\n" +
+                "    }\n" +
+                "}";
+        XContentParser parser= YamlXContent.yamlXContent.createParser(query);
 
         System.out.println("end");
     }
