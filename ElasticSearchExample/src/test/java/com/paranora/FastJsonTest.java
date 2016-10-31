@@ -82,7 +82,7 @@ public class FastJsonTest {
 
 
 
-        jsonObject.put("filter","{\"bool\":{\"must\":{\"range\":{\"Levels\":{\"gt\":1}}}}}");
+//        jsonObject.put("filter","{\"bool\":{\"must\":{\"range\":{\"Levels\":{\"gt\":1}}}}}");
 
         jsonString=JSON.toJSONString(jsonObject);
 
