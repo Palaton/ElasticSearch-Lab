@@ -22,6 +22,9 @@ public class SpringTest {
 
         obj.test();
 
+        String str=String.format("\"%s\"","flyceek");
+        System.out.println(str);
+
         System.out.println("i want to test spring now.");
     }
 }
