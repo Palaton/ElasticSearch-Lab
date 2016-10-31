@@ -80,9 +80,15 @@ public class FastJsonTest {
                 "  }}";
         Map<String,Object> jsonObject= JSON.parseObject(jsonString,Map.class);
 
+//        jsonObject.put("filter",new Map<String,Object>(){
+//            {
+//                put("bool",new Map<String,Object>(){{
+//                             put("must",new )
+//                    });
+//            }
+//        });
 
-
-//        jsonObject.put("filter","{\"bool\":{\"must\":{\"range\":{\"Levels\":{\"gt\":1}}}}}");
+        jsonObject.put("filter","{\"bool\":{\"must\":{\"range\":{\"Levels\":{\"gt\":1}}}}}");
 
         jsonString=JSON.toJSONString(jsonObject);
 
