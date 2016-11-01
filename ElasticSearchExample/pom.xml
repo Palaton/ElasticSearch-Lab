@@ -19,7 +19,24 @@
         <fastjson.version>1.1.34</fastjson.version>
         <commons-lang3.version>3.1</commons-lang3.version>
         <common-collections4.version>4.0</common-collections4.version>
+        <jdk.version>1.8</jdk.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <fastjson.version>1.1.34</fastjson.version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
 
@@ -91,6 +108,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>sqljdbc41</artifactId>
             <version>4.1</version>
@@ -155,6 +178,37 @@
             <artifactId>commons-collections4</artifactId>
             <version>${common-collections4.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>ognl</groupId>
+            <artifactId>ognl</artifactId>
+            <version>3.1.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>${dom4j.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
         <!--<dependency>-->
         <!--<groupId> org.apache.cassandra</groupId>-->
         <!--<artifactId>cassandra-all</artifactId>-->
