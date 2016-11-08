@@ -31,11 +31,14 @@ public class SpringJdbcTest {
         String sql = "SELECT * FROM users WHERE userID = :userID";
 
         Map<String,Object> parameter=new HashMap<String,Object>(){{
-           put("userID","yangqun");
+            put("userID","yangqun");
         }};
         SqlParameterSource namedParameters = new MapSqlParameterSource(parameter);
 
         Object obj =namedParameterJdbcTemplate.queryForMap(sql,namedParameters);
+
+        StringBuilder sb=new StringBuilder();
+
 
         System.out.println("");
     }

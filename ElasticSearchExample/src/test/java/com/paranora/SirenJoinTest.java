@@ -1,5 +1,8 @@
 package com.paranora;
 
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.paranora.Jest.JestApp;
 import com.paranora.SirenJoin.JestPlugins.SirenJoinBuilder;
 import io.searchbox.client.JestClient;
@@ -80,6 +83,9 @@ public class SirenJoinTest
                 .build();
 
         SearchResult result = jestClient.execute(search);
+
+//        JsonObject jsonObject =(((JsonArray)((JsonObject)result.getJsonObject().get("hits")).get("hits")).get(0);
+
 
         if(result.isSucceeded() && null!=result.getTotal()) {
             List<SearchResult.Hit<User, Void>> hits = result.getHits(User.class);
