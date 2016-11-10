@@ -26,7 +26,7 @@ import java.util.List;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/spring-context-test.xml")
-public class SpringDataElasticSearchAppTest {
+public class SpringDataElasticSearchTest {
 
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;

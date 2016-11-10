@@ -35,7 +35,7 @@ import static com.paranora.ElasticSearch.ElasticSearchApp.generateClient;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/spring-context-test.xml")
-public class ElasticSearchAppTest {
+public class ElasticSearchTest {
 
     @Test
     public void getIndex() throws Exception{
