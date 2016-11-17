@@ -1,5 +1,6 @@
 package com.paranora.ElasticsearchBeyondExample;
 
+import org.elasticsearch.client.transport.TransportClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,6 +16,7 @@ public class MainTest
 {
     @Test
     public void test(){
+
 
         System.out.println("hello world.");
     }
